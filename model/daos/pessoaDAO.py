@@ -27,7 +27,7 @@ class pessoaDAO:
         try:
             with self.conexao:
                 cursor = self.conexao.cursor()
-                cursor.execute('''SELECT * FROM pessoa''', (pessoa.nome, pessoa.email, pessoa.telefone, pessoa.idade))
+                cursor.execute('''SELECT * FROM pessoa''')
                 print(f"{Fore.GREEN}Pessoas listadas com sucesso.{Fore.RESET}")
         except Exception as e:
             print(f"{Fore.RED}Erro ao listar pessoas: {e}{Fore.RESET}")   
@@ -37,8 +37,8 @@ class pessoaDAO:
             with self.conexao:
                 cursor = self.conexao.cursor()
                 cursor.execute('''
-                    UPDATE pessoa SET nome = ?, email = ?, telefone = ?, idade = ? WHERE id= 
-                ''', (pessoa.nome, pessoa.email, pessoa.telefone, pessoa.idade))
+                    UPDATE pessoa SET nome = ?, email = ?, telefone = ?, idade = ? WHERE id= ?
+                ''', (pessoa.nome, pessoa.email, pessoa.telefone, pessoa.idade, pessoa.id))
                 print(f"{Fore.GREEN}Pessoa atualizada com sucesso.{Fore.RESET}")
         except Exception as e:
             print(f"{Fore.RED}Erro ao atualizar pessoa: {e}{Fore.RESET}")   
@@ -47,7 +47,7 @@ class pessoaDAO:
         try:
             with self.conexao:
                 cursor = self.conexao.cursor()
-                cursor.execute('DELETE FROM pessoa WHERE id = ?', (pessoa_id,))
+                cursor.execute('DELETE FROM pessoa WHERE id = ?', (pessoa_id))
                 print(f"{Fore.GREEN}Pessoa deletada com sucesso.{Fore.RESET}")
         except Exception as e:
             print(f"{Fore.RED}Erro ao deletar pessoa: {e}{Fore.RESET}")       
