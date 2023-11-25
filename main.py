@@ -1,6 +1,7 @@
 from pessoa import Pessoa
 from gerenciador_pessoas import GerenciadorPessoas
 
+
 gerenciador = GerenciadorPessoas()
 
 pessoa1 = Pessoa("Josue", "josue@gmail.com", 84927049, 22)

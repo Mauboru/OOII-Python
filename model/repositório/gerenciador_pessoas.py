@@ -1,11 +1,14 @@
-from entities.pessoa import Pessoa
+from entities import pessoa
+from daos import pessoaDAO
 
 class GerenciadorPessoas:
     def __init__(self):
         self.pessoas = []
+        
 
     def adicionar_pessoa(self, pessoa):
         self.pessoas.append(pessoa)
+        
 
     def listar_pessoas(self):
         for pessoa in self.pessoas:
