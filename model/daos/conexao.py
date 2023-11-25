@@ -1,5 +1,4 @@
 import sqlite3 as sql
-from colorama import Fore
 import os
 from dotenv import load_dotenv
 

@@ -1,5 +1,6 @@
 class pessoa:
-    def __init__(self, nome, email, telefone, idade):
+    def __init__(self, id, nome, email, telefone, idade):
+        self.id = id
         self.nome = nome
         self.email = email
         self.telefone = telefone
