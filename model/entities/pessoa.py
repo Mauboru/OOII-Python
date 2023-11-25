@@ -1,4 +1,4 @@
-class pessoa:
+class Pessoa:
     def __init__(self, id, nome, email, telefone, idade):
         self.id = id
         self.nome = nome
@@ -29,6 +29,12 @@ class pessoa:
 
     def set_idade(self, nova_idade):
         self._idade = nova_idade
+
+    def get_id(self):
+        return self._id
+    
+    def set_id(self, novo_id):
+        self._id = novo_id
 
     # Método toString
     def __str__(self):
