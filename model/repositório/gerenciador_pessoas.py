@@ -1,4 +1,4 @@
-from pessoa import Pessoa
+from entities.pessoa import Pessoa
 
 class GerenciadorPessoas:
     def __init__(self):
