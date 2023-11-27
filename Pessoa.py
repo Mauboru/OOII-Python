@@ -38,4 +38,4 @@ class Pessoa:
 
     # Método toString
     def __str__(self):
-        return f"Id :{self._id}, Nome:{self._nome}, Email:{self._email}, Telefone:{self._telefone}, Idade:{self._idade} anos"
+        return f"Id : {self._id}, \nNome: {self._nome}, \nEmail: {self._email}, \nTelefone: {self._telefone}, \nIdade: {self._idade} anos\n\n"
