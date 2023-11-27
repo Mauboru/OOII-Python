@@ -1,5 +1,4 @@
-from entities import pessoa
-from daos import pessoaDAO
+from model.entities import pessoa
 
 class GerenciadorPessoas:
     def __init__(self):

@@ -1,10 +1,10 @@
-from model.entities import Pessoa
-from model.repositório import GerenciadorPessoas
+from model.entities import pessoa
+from model.repositório import gerenciador_pessoas
 
-gerenciador = GerenciadorPessoas()
+gerenciador = gerenciador_pessoas.GerenciadorPessoas()
 
-pessoa1 = Pessoa("Josue", "josue@gmail.com", 84927049, 22)
-pessoa2 = Pessoa("Vinicius", "vinicius@gmail.com", 12345678, 22)
+pessoa1 = pessoa.Pessoa(1, "Josue", "josue@gmail.com", 84927049, 22)
+pessoa2 = pessoa.Pessoa(2, "Vinicius", "vinicius@gmail.com", 12345678, 22)
 
 gerenciador.adicionar_pessoa(pessoa1)
 gerenciador.adicionar_pessoa(pessoa2)
