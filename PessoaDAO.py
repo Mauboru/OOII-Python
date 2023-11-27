@@ -63,5 +63,23 @@ class PessoaDAO:
         except Exception as e:
             return f"{Fore.RED}Erro ao deletar pessoa: {e}{Fore.RESET}"      
         
+    def buscarPorId(self, id):
+        try:
+            with self.conexao:
+                cursor = self.conexao.cursor()
+                cursor.execute('''SELECT * FROM pessoa WHERE id = ?''', (id))
+                
+                pessoas = []
+                
+                for row in cursor.fetchall():
+                    pessoa = Pessoa(nome=row[1], email=row[2], telefone=row[3], idade=row[4])
+                    pessoa.set_id(row[0])
+                    pessoas.append(pessoa)
+                
+                return pessoas
+        except Exception as e:
+            print(f"{Fore.RED}Erro ao buscar pessoa: {e}{Fore.RESET}")
+            return []
+        
 
             
