@@ -1,8 +1,9 @@
-import conexao
-from entities import Pessoa
+from Conexao import Conexao
+from Pessoa import Pessoa
 from colorama import Fore
+import sqlite3 as sql
 
-class pessoaDAO:
+class PessoaDAO:
     def __init__(self, conexao):
         self.conexao = conexao
 
@@ -13,15 +14,16 @@ class pessoaDAO:
                 cursor.execute('''
                     INSERT INTO pessoa (nome, email, telefone, idade)
                     VALUES (?, ?, ?, ?)
-                ''', (pessoa.nome, pessoa.email, pessoa.telefone, pessoa.idade))
+                ''', (pessoa._nome, pessoa._email, pessoa._telefone, pessoa._idade))
 
                 pessoa_id = cursor.lastrowid
 
-                return f"{Fore.GREEN}Pessoa inserida com sucesso.{Fore.RESET}"
+                pessoa.set_id(pessoa_id)
 
-                
-        except Exception as e:
+                return f"{Fore.GREEN}Pessoa inserida com sucesso.{Fore.RESET}"                
+        except sql.Error as e:
             return f"{Fore.RED}Erro ao inserir pessoa: {e}{Fore.RESET}"
+            
 
     def listar(self):
         try:
@@ -32,7 +34,8 @@ class pessoaDAO:
                 pessoas = []
                 
                 for row in cursor.fetchall():
-                    pessoa = Pessoa(id=row[0], nome=row[1], email=row[2], telefone=row[3], idade=row[4])
+                    pessoa = Pessoa(nome=row[1], email=row[2], telefone=row[3], idade=row[4])
+                    pessoa.set_id(row[0])
                     pessoas.append(pessoa)
                 
                 return pessoas
@@ -59,3 +62,6 @@ class pessoaDAO:
                 return f"{Fore.GREEN}Pessoa deletada com sucesso.{Fore.RESET}"
         except Exception as e:
             return f"{Fore.RED}Erro ao deletar pessoa: {e}{Fore.RESET}"      
+        
+
+            

@@ -1,10 +1,10 @@
 class Pessoa:
-    def __init__(self, id, nome, email, telefone, idade):
-        self.id = id
-        self.nome = nome
-        self.email = email
-        self.telefone = telefone
-        self.idade = idade
+    def __init__(self, nome, email, telefone, idade):
+        self._nome = nome
+        self._email = email
+        self._telefone = telefone
+        self._idade = idade
+        self._id = None
 
     def get_nome(self):
         return self._nome
@@ -32,10 +32,10 @@ class Pessoa:
 
     def get_id(self):
         return self._id
-    
+
     def set_id(self, novo_id):
         self._id = novo_id
 
     # Método toString
     def __str__(self):
-        return f"{self.nome}, {self.email}, {self.telefone}, {self.idade} anos"
+        return f"Id :{self._id}, Nome:{self._nome}, Email:{self._email}, Telefone:{self._telefone}, Idade:{self._idade} anos"

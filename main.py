@@ -1,14 +1,22 @@
-from model.entities import Pessoa
-from model.repositório import GerenciadorPessoas
+from Conexao import Conexao
+from GerenciadorPessoas import GerenciadorPessoas
+from PessoaDAO import PessoaDAO
 
+pessoaDAO = PessoaDAO(Conexao.conectar_banco_dados())
 
-gerenciador = GerenciadorPessoas()
+gerenciador = GerenciadorPessoas(pessoaDAO)
 
-pessoa1 = Pessoa("Josue", "josue@gmail.com", 84927049, 22)
-pessoa2 = Pessoa("Vinicius", "vinicius@gmail.com", 12345678, 22)
+#nome = "Josue"
+#email = "josue@gmail.com" 
+#telefone = 80028922
+#idade = 22
 
-gerenciador.adicionar_pessoa(pessoa1)
-gerenciador.adicionar_pessoa(pessoa2)
+#gerenciador.adicionar_pessoa(nome, email, telefone, idade)
 
 print("Lista de Pessoas:")
-gerenciador.listar_pessoas()
+lista_pessoas = gerenciador.listar_pessoas()
+
+for pessoa in lista_pessoas:
+    print(pessoa)
+
+
