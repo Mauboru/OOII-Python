@@ -1,5 +1,5 @@
-from pessoa import Pessoa
-from gerenciador_pessoas import GerenciadorPessoas
+from model.entities import Pessoa
+from model.repositório import GerenciadorPessoas
 
 gerenciador = GerenciadorPessoas()
 
