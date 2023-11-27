@@ -1,4 +1,4 @@
-import conexão
+import conexao
 from entities import Pessoa
 from colorama import Fore
 
@@ -28,10 +28,18 @@ class pessoaDAO:
             with self.conexao:
                 cursor = self.conexao.cursor()
                 cursor.execute('''SELECT * FROM pessoa''')
-                return f"{Fore.GREEN}Pessoas listadas com sucesso.{Fore.RESET}"
+                
+                pessoas = []
+                
+                for row in cursor.fetchall():
+                    pessoa = Pessoa(id=row[0], nome=row[1], email=row[2], telefone=row[3], idade=row[4])
+                    pessoas.append(pessoa)
+                
+                return pessoas
         except Exception as e:
-            return f"{Fore.RED}Erro ao listar pessoas: {e}{Fore.RESET}"
-
+            print(f"{Fore.RED}Erro ao listar pessoas: {e}{Fore.RESET}")
+            return []
+        
     def atualizar(self, pessoa):
         try:
             with self.conexao:
