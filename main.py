@@ -1,8 +1,9 @@
-from Conexao import Conexao
-from GerenciadorPessoas import GerenciadorPessoas
-from PessoaDAO import PessoaDAO
+from model.daos.Conexao import Conexao
+from model.repositories.RepositorioPessoa import RepositorioPessoa
+from model.daos.PessoaDAO import PessoaDAO
 
 pessoaDAO = PessoaDAO(Conexao.conectar_banco_dados())
-gerenciador = GerenciadorPessoas(pessoaDAO)
+gerenciador = RepositorioPessoa(pessoaDAO)
 
-nova_pessoa = gerenciador.adicionar_pessoa("Vinicius Henrique", "vinicius@email.com", "84687559", 28)
+nova_pessoa = gerenciador.adicionar_pessoa("teste", "jean@email.com", "55449988", 28)
+print(nova_pessoa)

@@ -12,3 +12,4 @@ class Conexao:
             return conexao
         except sql.Error as e:
             raise ConnectionError(f"Erro ao conectar ao banco de dados: {e}")
+    

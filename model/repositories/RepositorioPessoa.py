@@ -1,8 +1,8 @@
-from Pessoa import Pessoa
-from PessoaDAO import PessoaDAO
-from Conexao import Conexao
+from model.entities.Pessoa import Pessoa
+from model.daos.PessoaDAO import PessoaDAO
+from model.daos.Conexao import Conexao
 
-class GerenciadorPessoas:
+class RepositorioPessoa:
     def __init__(self, pessoaDAO):
         self.pessoaDAO = pessoaDAO
 

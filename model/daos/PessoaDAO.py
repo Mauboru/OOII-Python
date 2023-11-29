@@ -1,5 +1,5 @@
-from Conexao import Conexao
-from Pessoa import Pessoa
+from model.daos.Conexao import Conexao
+from model.entities.Pessoa import Pessoa
 from colorama import Fore
 import sqlite3 as sql
 
@@ -76,6 +76,3 @@ class PessoaDAO:
         except Exception as e:
             print(f"{Fore.RED}Erro ao buscar pessoa: {e}{Fore.RESET}")
             return []
-        
-
-            
