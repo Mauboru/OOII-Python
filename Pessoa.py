@@ -1,41 +1,47 @@
 class Pessoa:
+    def __init__(self, id, nome, email, telefone, idade):
+        self.__nome = nome
+        self.__email = email
+        self.__telefone = telefone
+        self.__idade = idade
+        self.__id = id
+
     def __init__(self, nome, email, telefone, idade):
-        self._nome = nome
-        self._email = email
-        self._telefone = telefone
-        self._idade = idade
-        self._id = None
+        self.__nome = nome
+        self.__email = email
+        self.__telefone = telefone
+        self.__idade = idade
 
     def get_nome(self):
-        return self._nome
+        return self.__nome
 
     def set_nome(self, novo_nome):
-        self._nome = novo_nome
+        self.__nome = novo_nome
 
     def get_email(self):
-        return self._email
+        return self.__email
 
     def set_email(self, novo_email):
-        self._email = novo_email
+        self.__email = novo_email
 
     def get_telefone(self):
-        return self._telefone
+        return self.__telefone
 
     def set_telefone(self, novo_telefone):
-        self._telefone = novo_telefone
+        self.__telefone = novo_telefone
 
     def get_idade(self):
-        return self._idade
+        return self.__idade
 
     def set_idade(self, nova_idade):
-        self._idade = nova_idade
+        self.__idade = nova_idade
 
     def get_id(self):
-        return self._id
+        return self.__id
 
     def set_id(self, novo_id):
-        self._id = novo_id
+        self.__id = novo_id
 
     # Método toString
     def __str__(self):
-        return f"Id : {self._id}, \nNome: {self._nome}, \nEmail: {self._email}, \nTelefone: {self._telefone}, \nIdade: {self._idade} anos\n\n"
+        return f"Id : {self.__id}, \nNome: {self.__nome}, \nEmail: {self.__email}, \nTelefone: {self.__telefone}, \nIdade: {self.__idade} anos\n\n"
