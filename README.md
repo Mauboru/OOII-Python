@@ -4,3 +4,8 @@ Sistema criado para a apresentação de linguagens da disciplina de Orientação
 # Implementar
 - CRUD de uma Pessoa (nome, email, telefone, idade)
 - Usar banco de dados SQLITE3
+
+# Instalar
+
+pip install python-dotenv
+pip install colorama

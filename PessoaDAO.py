@@ -14,11 +14,7 @@ class PessoaDAO:
                 cursor.execute('''
                     INSERT INTO pessoa (nome, email, telefone, idade)
                     VALUES (?, ?, ?, ?)
-                ''', (pessoa._nome, pessoa._email, pessoa._telefone, pessoa._idade))
-
-                pessoa_id = cursor.lastrowid
-
-                pessoa.set_id(pessoa_id)
+                ''', (pessoa.get_nome(), pessoa.get_email(), pessoa.get_telefone(), pessoa.get_idade()))
 
                 return f"{Fore.GREEN}Pessoa inserida com sucesso.{Fore.RESET}"                
         except sql.Error as e:
