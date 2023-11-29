@@ -19,7 +19,6 @@ class PessoaDAO:
                 return f"{Fore.GREEN}Pessoa inserida com sucesso.{Fore.RESET}"                
         except sql.Error as e:
             return f"{Fore.RED}Erro ao inserir pessoa: {e}{Fore.RESET}"
-            
 
     def listar(self):
         try:
@@ -65,14 +64,13 @@ class PessoaDAO:
                 cursor = self.conexao.cursor()
                 cursor.execute('''SELECT * FROM pessoa WHERE id = ?''', (id))
                 
-                pessoas = []
-                
-                for row in cursor.fetchall():
+                row = cursor.fetchone()
+
+                if row:
                     pessoa = Pessoa(nome=row[1], email=row[2], telefone=row[3], idade=row[4])
                     pessoa.set_id(row[0])
-                    pessoas.append(pessoa)
-                
-                return pessoas
+
+                    return pessoa
         except Exception as e:
             print(f"{Fore.RED}Erro ao buscar pessoa: {e}{Fore.RESET}")
-            return []
+            return None

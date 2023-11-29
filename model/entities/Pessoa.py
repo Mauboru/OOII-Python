@@ -44,4 +44,4 @@ class Pessoa:
 
     # Método toString
     def __str__(self):
-        return f"Id : {self.__id}, \nNome: {self.__nome}, \nEmail: {self.__email}, \nTelefone: {self.__telefone}, \nIdade: {self.__idade} anos\n\n"
+        return f"Id : {self.__id}, \nNome: {self.__nome}, \nEmail: {self.__email}, \nTelefone: {self.__telefone}, \nIdade: {self.__idade} anos\n"

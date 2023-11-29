@@ -1,6 +1,7 @@
 from model.entities.Pessoa import Pessoa
 from model.daos.PessoaDAO import PessoaDAO
 from model.daos.Conexao import Conexao
+from colorama import Fore
 
 class RepositorioPessoa:
     def __init__(self, pessoaDAO):
@@ -16,9 +17,9 @@ class RepositorioPessoa:
     def buscar_pessoa(self, id):
         return self.pessoaDAO.buscarPorId(id)
 
-    def atualizar_pessoa(self, novo_nome, novo_email, novo_telefone, novo_idade):
+    def atualizar_pessoa(self, id, novo_nome, novo_email, novo_telefone, novo_idade):
         atualizarPessoa = Pessoa(novo_nome, novo_email, novo_telefone, novo_idade)
-        return self.pessoaDAO.criar(atualizarPessoa)
+        return self.pessoaDAO.criar(id, atualizarPessoa)
 
     def excluir_pessoa(self, id):
         return self.pessoaDAO.deletar_pessoa(id)
