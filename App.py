@@ -4,7 +4,6 @@ from model.repositories.RepositorioPessoa import RepositorioPessoa
 from colorama import Fore
 
 conexao = Conexao.conectar_banco_dados()
-cursor = conexao.cursor()
 pessoaDAO = PessoaDAO(conexao)
 repositorio = RepositorioPessoa(pessoaDAO)
 
