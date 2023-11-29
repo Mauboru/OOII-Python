@@ -66,6 +66,18 @@ if __name__ == '__main__':
         print(f"       {Fore.RED}TELA DE EXCLUSÃO{Fore.RESET}        ")
         print("===============================\n")
 
+        id_pesquisa = str(input('Digite o id da pessoa: '))
+        id = repositorio.buscar_pessoa(id_pesquisa)
+
+        if not id:
+            print('Pessoa não encontrada.')
+            return
+
+        print(f'Pessoa encontrada!')
+
+        delete = repositorio.excluir_pessoa(id_pesquisa)
+        print(delete)
+
     # Loop principal do programa
     while True:
         exibir_menu()
@@ -78,7 +90,7 @@ if __name__ == '__main__':
         elif opcao == "3":
             editar()
         elif opcao == "4":
-            listar()
+            deletar()
         elif opcao == "5":
             print("Saindo do programa. Até logo!")
             break

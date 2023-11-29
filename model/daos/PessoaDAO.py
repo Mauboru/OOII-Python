@@ -50,11 +50,12 @@ class PessoaDAO:
         except sql.Error as e:
             return f"{Fore.RED}Erro ao atualizar pessoa: {e}{Fore.RESET}"
 
-    def deletar_pessoa(self, pessoa_id):
+    def deletar_pessoa(self, id):
         try:
             with self.conexao:
                 cursor = self.conexao.cursor()
-                cursor.execute('DELETE FROM pessoa WHERE id = ?', (pessoa_id))
+                cursor.execute('''DELETE FROM pessoa WHERE id = ?''', (id,))
+
                 return f"{Fore.GREEN}Pessoa deletada com sucesso.{Fore.RESET}"
         except Exception as e:
             return f"{Fore.RED}Erro ao deletar pessoa: {e}{Fore.RESET}"      
