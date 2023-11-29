@@ -9,7 +9,6 @@ pessoaDAO = PessoaDAO(conexao)
 repositorio = RepositorioPessoa(pessoaDAO)
 
 if __name__ == '__main__':
-    # Funções
     def exibir_menu():
         print("===============================")
         print(f"{Fore.LIGHTWHITE_EX}       SISTEMA DE PYTHON       {Fore.RESET}")
