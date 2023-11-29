@@ -47,7 +47,7 @@ class PessoaDAO:
                 ''', (pessoa.get_nome(), pessoa.get_email(), pessoa.get_telefone(), pessoa.get_idade(), pessoa.get_id()))
                 
                 return f"{Fore.GREEN}Pessoa atualizada com sucesso.{Fore.RESET}"
-        except Exception as e:
+        except sql.Error as e:
             return f"{Fore.RED}Erro ao atualizar pessoa: {e}{Fore.RESET}"
 
     def deletar_pessoa(self, pessoa_id):

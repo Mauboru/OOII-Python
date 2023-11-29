@@ -1,7 +1,4 @@
 from model.entities.Pessoa import Pessoa
-from model.daos.PessoaDAO import PessoaDAO
-from model.daos.Conexao import Conexao
-from colorama import Fore
 
 class RepositorioPessoa:
     def __init__(self, pessoaDAO):
@@ -18,7 +15,7 @@ class RepositorioPessoa:
         return self.pessoaDAO.buscarPorId(id)
 
     def atualizar_pessoa(self, id, novo_nome, novo_email, novo_telefone, novo_idade):
-        pessoa_atualizada = Pessoa(id, novo_nome, novo_email, novo_telefone, novo_idade)
+        pessoa_atualizada = Pessoa(novo_nome, novo_email, novo_telefone, novo_idade, id)
         return self.pessoaDAO.atualizar(pessoa_atualizada)
 
     def excluir_pessoa(self, id):
