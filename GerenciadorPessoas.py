@@ -9,7 +9,6 @@ class GerenciadorPessoas:
     def adicionar_pessoa(self, nome, email, telefone, idade):
         novaPessoa = Pessoa(nome, email, telefone, idade)
         return self.pessoaDAO.criar(novaPessoa)
-        
 
     def listar_pessoas(self):
         return self.pessoaDAO.listar()
