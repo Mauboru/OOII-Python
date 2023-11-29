@@ -2,7 +2,6 @@ from model.daos.Conexao import Conexao
 from model.daos.PessoaDAO import PessoaDAO
 from model.repositories.RepositorioPessoa import RepositorioPessoa
 from colorama import Fore
-import os
 
 conexao = Conexao.conectar_banco_dados()
 cursor = conexao.cursor()
@@ -35,8 +34,8 @@ if __name__ == '__main__':
         cadastro = repositorio.adicionar_pessoa(nome, email, telefone, idade)
         return print(cadastro)
 
-    def listar(self):
-        pessoas = self.pessoaDAO.listar()
+    def listar():
+        pessoas = repositorio.listar_pessoas()
         for pessoa in pessoas:
             print(pessoa)
 
@@ -45,10 +44,10 @@ if __name__ == '__main__':
         print(f"        {Fore.YELLOW}TELA DE EDIÇÃO{Fore.RESET}         ")
         print("===============================\n")
 
-        pesquisa = str(input('Digite o id da pessoa: '))
-        pessoa = repositorio.buscar_pessoa(pesquisa)
+        id_pesquisa = str(input('Digite o id da pessoa: '))
+        id = repositorio.buscar_pessoa(id_pesquisa)
 
-        if not pessoa:
+        if not id:
             print('Pessoa não encontrada.')
             return
 
@@ -59,7 +58,7 @@ if __name__ == '__main__':
         telefone = str(input('Digite o novo telefone: '))
         idade = int(input('Digite a nova idade: '))
 
-        atualizado = repositorio.atualizar_pessoa(pessoa.get_id(), nome, email, telefone, idade)
+        atualizado = repositorio.atualizar_pessoa(id_pesquisa, nome, email, telefone, idade)
         print(atualizado)
 
     def deletar():
@@ -75,11 +74,11 @@ if __name__ == '__main__':
         if opcao == "1":
             cadastrar()
         elif opcao == "2":
-            listar(repositorio)
+            listar()
         elif opcao == "3":
             editar()
         elif opcao == "4":
-            listar(repositorio)
+            listar()
         elif opcao == "5":
             print("Saindo do programa. Até logo!")
             break

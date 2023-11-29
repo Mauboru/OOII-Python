@@ -44,7 +44,8 @@ class PessoaDAO:
                 cursor = self.conexao.cursor()
                 cursor.execute('''
                     UPDATE pessoa SET nome = ?, email = ?, telefone = ?, idade = ? WHERE id= ?
-                ''', (pessoa.nome, pessoa.email, pessoa.telefone, pessoa.idade, pessoa.id))
+                ''', (pessoa.get_nome(), pessoa.get_email(), pessoa.get_telefone(), pessoa.get_idade(), pessoa.get_id()))
+                
                 return f"{Fore.GREEN}Pessoa atualizada com sucesso.{Fore.RESET}"
         except Exception as e:
             return f"{Fore.RED}Erro ao atualizar pessoa: {e}{Fore.RESET}"
@@ -62,7 +63,7 @@ class PessoaDAO:
         try:
             with self.conexao:
                 cursor = self.conexao.cursor()
-                cursor.execute('''SELECT * FROM pessoa WHERE id = ?''', (id))
+                cursor.execute('''SELECT * FROM pessoa WHERE id = ?''', (id,))
                 
                 row = cursor.fetchone()
 

@@ -1,10 +1,10 @@
 class Pessoa:
     def __init__(self, id, nome, email, telefone, idade):
+        self.__id = id
         self.__nome = nome
         self.__email = email
         self.__telefone = telefone
         self.__idade = idade
-        self.__id = id
 
     def __init__(self, nome, email, telefone, idade):
         self.__nome = nome
