@@ -2,6 +2,7 @@ from model.daos.Conexao import Conexao
 from model.daos.PessoaDAO import PessoaDAO
 from model.repositories.RepositorioPessoa import RepositorioPessoa
 from colorama import Fore
+import os
 
 conexao = Conexao.conectar_banco_dados()
 pessoaDAO = PessoaDAO(conexao)
@@ -9,6 +10,7 @@ repositorio = RepositorioPessoa(pessoaDAO)
 
 if __name__ == '__main__':
     def exibir_menu():
+        os.system('cls' if os.name == 'nt' else 'clear')
         print("===============================")
         print(f"{Fore.LIGHTWHITE_EX}       SISTEMA DE PYTHON       {Fore.RESET}")
         print("===============================")
@@ -20,6 +22,7 @@ if __name__ == '__main__':
         print("===============================")
 
     def cadastrar():
+        os.system('cls' if os.name == 'nt' else 'clear')
         print("===============================")
         print(f"        {Fore.GREEN}TELA DE CADASTRO{Fore.RESET}        ")
         print("===============================\n")
@@ -33,11 +36,13 @@ if __name__ == '__main__':
         return print(cadastro)
 
     def listar():
+        os.system('cls' if os.name == 'nt' else 'clear')
         pessoas = repositorio.listar_pessoas()
         for pessoa in pessoas:
             print(pessoa)
 
     def editar():
+        os.system('cls' if os.name == 'nt' else 'clear')
         print("===============================")
         print(f"        {Fore.YELLOW}TELA DE EDIÇÃO{Fore.RESET}         ")
         print("===============================\n")
@@ -60,6 +65,7 @@ if __name__ == '__main__':
         print(atualizado)
 
     def deletar():
+        os.system('cls' if os.name == 'nt' else 'clear')
         print("===============================")
         print(f"       {Fore.RED}TELA DE EXCLUSÃO{Fore.RESET}        ")
         print("===============================\n")
